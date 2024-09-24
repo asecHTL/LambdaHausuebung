@@ -22,9 +22,20 @@ public class Main {
         }
         );
 
-        NumberTest palindromeTester = (line -> {
-
-            return false;
+        NumberTest palindromeTester = (number -> {
+            char[] chars = String.valueOf(number).toCharArray();
+            char[] charsCoppy = new char[chars.length];
+            for (int i = chars.length - 1; i >= 0; i--) {
+                charsCoppy = Character.toChars(i);
+            }
+            for (int j = 0; j < chars.length; j++) {
+                int x = chars[j];
+                int y = charsCoppy[j];
+                if (x != y) {
+                    return false;
+                }
+            }
+            return true;
         });
 
         NumberTester numberTester = new NumberTester("testFile_bsp3.txt");
