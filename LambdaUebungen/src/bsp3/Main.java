@@ -1,14 +1,13 @@
 package bsp3;
 
+import java.io.IOException;
+
 public class Main {
-    public static void main(String[] args) {
-        NumberTester numberTester = new NumberTester("testFile_bsp3.txt");
+    public static void main(String[] args) throws IOException {
 
 
-        NumberTest oddEvenTester = (number ->{
-            
-            return false;
-        });
+
+        NumberTest oddEvenTester = (number -> number % 2 == 0);
 
         NumberTest primeTester = (number -> {
             if (number <= 2) {
@@ -27,5 +26,11 @@ public class Main {
 
             return false;
         });
+
+        NumberTester numberTester = new NumberTester("testFile_bsp3.txt");
+        numberTester.setOddEvenTester(oddEvenTester);
+        numberTester.setPrimeTester(primeTester);
+        numberTester.setPalindromeTester(palindromeTester);
+        numberTester.testFile();
     }
 }
