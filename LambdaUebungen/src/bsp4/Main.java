@@ -92,10 +92,13 @@ public class Main {
             try {
                 switch (input){
                     case 1: //Add
-                        
-                    case 2: //Sub+
+                    rationalCalculator.add(inputYA, inputXB);
+                    case 2: //Sub
+                    rationalCalculator.subtract();
                     case 3: //Mult
+                    rationalCalculator.multiply();
                     case 4: //Divide
+                    rationalCalculator.divide()
                     default: calcMenue();
                 }
             }catch (Exception e){
