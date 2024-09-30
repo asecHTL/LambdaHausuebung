@@ -8,11 +8,12 @@ import java.util.Scanner;
 
 public class Main {
     static RationalCalculator rationalCalculator;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         rationalCalculator =   RationalCalculator();
+        rationCalc();
     }
 
-    public int calcMenue(){
+    public static int calcMenue(){
         Scanner scanner = new Scanner(System.in);
         int input = 0;
 
@@ -31,7 +32,7 @@ public class Main {
         return input;
     }
 
-    public void choooseCalculator() throws IOException {
+    public static void choooseCalculator() throws IOException {
         Scanner scanner = new Scanner(System.in);
         int inputCalculator = 0;
 
@@ -73,7 +74,7 @@ public class Main {
     }
 
 
-    public void rationCalc() throws IOException {
+    public static void rationCalc() throws IOException {
         Scanner scanner = new Scanner(System.in);
         try{
             System.out.println("\n Enter number x a>");
@@ -92,13 +93,13 @@ public class Main {
             try {
                 switch (input){
                     case 1: //Add
-                    rationalCalculator.add(inputYA, inputXB);
+                    rationalCalculator.add(new Number(inputXA,inputYA), new Number(inputXB,inputYB));
                     case 2: //Sub
-                    rationalCalculator.subtract();
+                    rationalCalculator.subtract(new Number(inputXA,inputYA), new Number(inputXB,inputYB));
                     case 3: //Mult
-                    rationalCalculator.multiply();
+                    rationalCalculator.multiply(new Number(inputXA,inputYA), new Number(inputXB,inputYB));
                     case 4: //Divide
-                    rationalCalculator.divide()
+                    rationalCalculator.divide(new Number(inputXA,inputYA), new Number(inputXB,inputYB));
                     default: calcMenue();
                 }
             }catch (Exception e){
